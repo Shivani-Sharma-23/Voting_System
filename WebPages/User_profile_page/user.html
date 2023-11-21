@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Platform</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .candidates-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .candidate {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        textarea, input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .rating-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .rating-container label {
+            margin: 0 10px;
+            font-size: 24px;
+            color: #3498db;
+            cursor: pointer;
+        }
+
+        .rating-container input {
+            display: none;
+        }
+
+        .rating-container label:hover,
+        .rating-container label:hover ~ label {
+            color: #f39c12;
+        }
+
+        .rating-container input:checked ~ label {
+            color: #f39c12;
+        }
+
+        #submit-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #reviews-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .review {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .review strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #3498db;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>REVIEW</h1>
+    
+    <div class="candidates-container">
+        <div class="candidate" id="candidate1">
+            <h2>Candidate Name 1</h2>
+            <form id="form1">
+                <label for="name1">Candidate's Name:</label>
+                <textarea name="name" id="name1" required></textarea>
+
+                <label for="rating">Rating:</label>
+        <div class="rating-container">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">&#9733;</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">&#9733;</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">&#9733;</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">&#9733;</label>
+            <input type="radio" id="star1" name="rating" value="1" checked>
+            <label for="star1">&#9733;</label>
+        </div>
+        <div id="reviews-list">
+            <!-- Reviews will be displayed here -->
+        </div>
+        <script>
+            function submitReview() {
+                const reviewText = document.getElementById('review').value;
+                const rating = document.querySelector('input[name="rating"]:checked').value;
+        
+                if (reviewText && rating) {
+                    const reviewList = document.getElementById('reviews-list');
+        
+                    // Create a new review element
+                    const reviewElement = document.createElement('div');
+                    reviewElement.className = 'review';
+                    reviewElement.innerHTML = <strong>Rating:</strong> ${rating}/5 <br>${reviewText};
+        
+                    // Append the new review to the list
+                    reviewList.appendChild(reviewElement);
+        
+                    // Clear the form fields
+                    document.getElementById('review-form').reset();
+                } else {
+                    alert('Please enter both review and rating.');
+                }
+            }
+        </script>
+        
+
+                <label for="strengths1">Strengths:</label>
+                <textarea name="strengths" id="strengths1" required></textarea>
+
+                <label for="improvements1">Areas for Improvement:</label>
+                <textarea name="improvements" id="improvements1" required></textarea>
+
+                <label for="comments1">Additional Comments:</label>
+                <textarea name="comments" id="comments1"></textarea>
+
+                <button type="button" onclick="submitReview(1)">Submit Review</button>
+            </form>
+        </div>
+
+        <!-- Add more candidate elements as needed -->
+    </div>
+
+    <script>
+        function submitReview(candidateId) {
+            const name = document.getElementById(name${candidateId}).value;
+            const rating = document.getElementById(rating${candidateId}).value;
+            const strengths = document.getElementById(strengths${candidateId}).value;
+            const improvements = document.getElementById(improvements${candidateId}).value;
+            const comments = document.getElementById(comments${candidateId}).value;
+
+            console.log(Candidate: ${name}, Rating: ${rating}, Strengths: ${strengths}, Improvements: ${improvements}, Comments: ${comments});
+
+            // Add your logic here to submit the review (e.g., send it to the server)
+        }
+    </script>
+</body>
+</html>
