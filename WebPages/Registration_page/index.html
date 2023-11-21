@@ -17,14 +17,14 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: dark green;
+      background: rgb(130, 106, 251);
     }
 
     .container {
       position: relative;
       max-width: 700px;
       width: 100%;
-      background: beige;
+      background: #fff;
       padding: 25px;
       border-radius: 8px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -74,6 +74,30 @@
       gap: 15px;
     }
 
+    .form .image-input {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form .image-input label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .form .image-input input {
+      display: none;
+    }
+
+    .form .image-input img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
     .form .gender-box {
       margin-top: 15px;
     }
@@ -97,7 +121,7 @@
     }
 
     .gender input {
-      accent-color: blue;
+      accent-color: rgb(130, 106, 251);
     }
 
     .form :where(.gender input, .gender label) {
@@ -131,12 +155,12 @@
       border: none;
       cursor: pointer;
       transition: background 0.2s ease;
-      background:brown;
+      background: rgb(130, 106, 251);
       border-radius: 6px;
     }
 
     .form button:hover {
-      background:brown;
+      background: rgb(88, 56, 250);
     }
 
     /* Responsive */
@@ -174,6 +198,24 @@
         <div class="input-box">
           <label>Birth Date</label>
           <input type="date" placeholder="Enter birth date" required />
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="image-input">
+            <div class="input-box">
+          <label>Add Passport Size Photograph (Image)</label>
+          <input type="file" accept="image/*" />
+          <img src="#" alt="Photo Preview" id="photoPreview" />
+        </div>
+    </div>
+
+        <div class="image-input">
+        <div class="input-box"> 
+          <label>Add Voter ID Image (Image)</label>
+          <input type="file" accept="image/*" />
+          <img src="#" alt="Voter ID Preview" id="voterIdPreview" />
+        </div>
         </div>
       </div>
 
@@ -223,6 +265,36 @@
       <button type="submit">Submit</button>
     </form>
   </section>
+
+  <script>
+    // Preview images before uploading
+    const photoInput = document.querySelector('input[type="file"][accept="image/*"]');
+    const voterIdInput = document.querySelector('input[type="file"][accept="image/*"]');
+    const photoPreview = document.getElementById('photoPreview');
+    const voterIdPreview = document.getElementById('voterIdPreview');
+
+    photoInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          photoPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    voterIdInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          voterIdPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
 </body>
 
 </html>
