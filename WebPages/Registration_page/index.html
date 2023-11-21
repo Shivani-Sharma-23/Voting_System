@@ -203,19 +203,23 @@
 
       <div class="column">
         <div class="image-input">
-            <div class="input-box">
-          <label>Add Passport Size Photograph (Image)</label>
-          <input type="file" accept="image/*" />
-          <img src="#" alt="Photo Preview" id="photoPreview" />
+          <div class="input-box">
+            <label for="photoInput">Add Passport Size Photograph (JPEG, PNG)</label>
+            <input type="file" accept="image/jpeg, image/png" id="photoInput" required />
+            <div id="imagePreviewContainer">
+              <img src="#" alt="Photo Preview" id="photoPreview" />
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-        <div class="image-input">
-        <div class="input-box"> 
-          <label>Add Voter ID Image (Image)</label>
-          <input type="file" accept="image/*" />
-          <img src="#" alt="Voter ID Preview" id="voterIdPreview" />
-        </div>
+      <div class="image-input">
+        <div class="input-box">
+          <label for="voterIdInput">Add Voter ID Image (JPEG, PNG)</label>
+          <input type="file" accept="image/jpeg, image/png" id="voterIdInput" required />
+          <div id="voterIdPreviewContainer">
+            <img src="#" alt="Voter ID Preview" id="voterIdPreview" />
+          </div>
         </div>
       </div>
 
@@ -268,8 +272,8 @@
 
   <script>
     // Preview images before uploading
-    const photoInput = document.querySelector('input[type="file"][accept="image/*"]');
-    const voterIdInput = document.querySelector('input[type="file"][accept="image/*"]');
+    const photoInput = document.getElementById('photoInput');
+    const voterIdInput = document.getElementById('voterIdInput');
     const photoPreview = document.getElementById('photoPreview');
     const voterIdPreview = document.getElementById('voterIdPreview');
 
