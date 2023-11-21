@@ -9,11 +9,10 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         // Show the logo container
         document.querySelector('.logo-container').classList.add('active');
-    }, 30000); // 30000 milliseconds (30 seconds)
+    }, 10000); // 30000 milliseconds (30 seconds)
 
     // Logo click event to navigate to another webpage
-    document.querySelector('.logo').addEventListener('click', function() {
-        // Replace 'destination.html' with the actual destination page
+    document.querySelector('.logo').addEventListener('click', function(){
         window.location.href = 'index.html';
     });
 });
