@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Authentication
+   </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: black;
+        }
+
+        .centre {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 200px;
+            height: fit-content;
+            justify-content: flex-start;
+            gap: 20px;
+            padding: 10px;
+            align-content: flex-start;
+        }
+
+        #videoCam {
+            margin-top: 60px; /* Add margin to the top of the video */
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <button class="centre" id="startBtn" onclick="openCam()">Scan yourself</button>
+    <br /><br />
+    <video id="videoCam"></video>
+    <script>
+        function openCam() {
+            let All_mediaDevices = navigator.mediaDevices;
+            if (!All_mediaDevices || !All_mediaDevices.getUserMedia) {
+                console.log("getUserMedia() not supported.");
+                return;
+            }
+            All_mediaDevices.getUserMedia({
+                audio: true,
+                video: true
+            })
+            .then(function (vidStream) {
+                var video = document.getElementById('videoCam');
+                if ("srcObject" in video) {
+                    video.srcObject = vidStream;
+                } else {
+                    video.src = window.URL.createObjectURL(vidStream);
+                }
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                    // Hide the button after webcam appears
+                    document.getElementById('startBtn').style.display = 'none';
+                };
+            })
+            .catch(function (e) {
+                console.log(e.name + ": " + e.message);
+            });
+        }
+
+        setTimeout(function () {
+            // Redirect to another webpage
+            window.location.href = 'result.html';
+        }, 10000);
+    </script>
+</body>
+</html>

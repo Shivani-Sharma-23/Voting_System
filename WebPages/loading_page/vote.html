@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vote Page</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      font-size: 24px;
+      color: Green;
+    }
+  </style>
+</head>
+<body>
+
+<button type="submit" id="voteButton">Vote</button>
+<div id="message">vote casted</div>
+
+<script>
+  var button = document.getElementById("voteButton");
+  var message = document.getElementById("message");
+
+  // Set up a click event listener on the button
+  button.addEventListener("click", function() {
+    // Hide the button
+    button.style.display = "none";
+
+    // Show the message after clicking the button
+    message.style.display = "block";
+
+    // After 5 seconds, redirect to another page
+    setTimeout(function() {
+      window.location.href = "review.html";
+    }, 5000); // 5000 milliseconds = 5 seconds
+  });
+</script>
+
+</body>
+</html>
