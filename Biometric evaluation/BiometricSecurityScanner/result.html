@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Page</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        #authentication-container {
+            text-align: center;
+        }
+
+        #authentication-text {
+            margin-bottom: 20px;
+        }
+
+        #blue-circle {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        #white-tick {
+            width: 60%;
+            height: 60%;
+            border: 3px solid #fff;
+            border-top: 0;
+            border-right: 0;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #review-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="authentication-container">
+    <h1 id="authentication-text">You are AUTHENTICATED</h1>
+    
+    <div id="blue-circle">
+        <div id="white-tick"></div>
+    </div>
+
+    <a href="review-page.html" id="review-button">Review</a>
+</div>
+
+</body>
+</html>

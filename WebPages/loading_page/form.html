@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!-- Coding By CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgb(130, 106, 251);
+    }
+
+    .container {
+      position: relative;
+      max-width: 700px;
+      width: 100%;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container header {
+      font-size: 2rem;
+      color: #333;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container .form {
+      margin-top: 20px;
+    }
+
+    .form .input-box {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .input-box label {
+      color: #333;
+    }
+
+    .form :where(.input-box input, .select-box) {
+      position: relative;
+      height: 40px;
+      width: 100%;
+      outline: none;
+      font-size: 1rem;
+      color: #333;
+      margin-top: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0 15px;
+    }
+
+    .input-box input:focus {
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .form .column {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    .form .image-input {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form .image-input label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .form .image-input input {
+      display: none;
+    }
+
+    .form .image-input img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .form .gender-box {
+      margin-top: 15px;
+    }
+
+    .gender-box h3 {
+      color: #333;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .form :where(.gender-option, .gender) {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form .gender {
+      gap: 5px;
+    }
+
+    .gender input {
+      accent-color: rgb(130, 106, 251);
+    }
+
+    .form :where(.gender input, .gender label) {
+      cursor: pointer;
+    }
+
+    .gender label {
+      color: #707070;
+    }
+
+    .address :where(input, .select-box) {
+      margin-top: 15px;
+    }
+
+    .select-box select {
+      height: 100%;
+      width: 100%;
+      outline: none;
+      border: none;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .form button {
+      height: 45px;
+      width: 100%;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      background: rgb(130, 106, 251);
+      border-radius: 6px;
+    }
+
+    .form button:hover {
+      background: rgb(88, 56, 250);
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 1000px) {
+      .form .column {
+        flex-wrap: wrap;
+      }
+
+      .form :where(.gender-option, .gender) {
+        row-gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <header>Registration Form</header>
+    <form action="#" class="form">
+      <div class="input-box">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter full name" required />
+      </div>
+
+      <div class="input-box">
+        <label>Email Address</label>
+        <input type="text" placeholder="Enter email address" required />
+      </div>
+
+      <div class="column">
+        <div class="input-box">
+          <label>Phone Number</label>
+          <input type="number" placeholder="Enter phone number" required />
+        </div>
+        <div class="input-box">
+          <label>Birth Date</label>
+          <input type="date" placeholder="Enter birth date" required />
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="image-input">
+          <div class="input-box">
+            <label for="photoInput">Add Passport Size Photograph (JPEG, PNG)</label>
+            <input type="file" accept="image/jpeg, image/png" id="photoInput" required />
+            <div id="imagePreviewContainer">
+              <img src="#" alt="Photo Preview" id="photoPreview" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-input">
+        <div class="input-box">
+          <label for="voterIdInput">Add Voter ID Image (JPEG, PNG)</label>
+          <input type="file" accept="image/jpeg, image/png" id="voterIdInput" required />
+          <div id="voterIdPreviewContainer">
+            <img src="#" alt="Voter ID Preview" id="voterIdPreview" />
+          </div>
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>AdharCard Number</label>
+        <input type="number" placeholder="Enter AdharCard Number " required />
+      </div>
+
+      <div class="gender-box">
+        <h3>Gender</h3>
+        <div class="gender-option">
+          <div class="gender">
+            <input type="radio" id="check-male" name="gender" checked />
+            <label for="check-male">Male</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="check-female" name="gender" />
+            <label for="check-female">Female</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="check-other" name="gender" />
+            <label for="check-other">Prefer not to say</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-box address">
+        <label>Address</label>
+        <input type="text" placeholder="Enter street address" required />
+        <input type="text" placeholder="Enter street address line 2" required />
+        <input type="text" placeholder="Enter your city" required />
+      </div>
+
+      <br>
+
+      <div class="column">
+        <div class="input-box">
+          <label>Enter your region</label>
+          <input type="text" placeholder="Enter your region" required />
+        </div>
+        <div class="input-box">
+          <label>Postal Code</label>
+          <input type="number" placeholder="Enter postal code" required />
+        </div>
+      </div>
+
+      <button type="submit"><a href = "user.html">Submit</a></button>
+    </form>
+  </section>
+
+  <script>
+    // Preview images before uploading
+    const photoInput = document.getElementById('photoInput');
+    const voterIdInput = document.getElementById('voterIdInput');
+    const photoPreview = document.getElementById('photoPreview');
+    const voterIdPreview = document.getElementById('voterIdPreview');
+
+    photoInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          photoPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    voterIdInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          voterIdPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+
+</html>

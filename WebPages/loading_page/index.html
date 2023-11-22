@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+  <title>Form</title>
   <style>
     * {
       margin: 0;
@@ -17,7 +18,7 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: rgb(130, 106, 251);
+      background:rgb(133, 150, 133);
     }
 
     .container {
@@ -121,7 +122,7 @@
     }
 
     .gender input {
-      accent-color: rgb(130, 106, 251);
+      accent-color: rgb(2, 52, 2);
     }
 
     .form :where(.gender input, .gender label) {
@@ -241,7 +242,7 @@
           </div>
           <div class="gender">
             <input type="radio" id="check-other" name="gender" />
-            <label for="check-other">Prefer not to say</label>
+            <label for="check-other">Other</label>
           </div>
         </div>
       </div>
@@ -266,7 +267,7 @@
         </div>
       </div>
 
-      <button type="submit"><a href = "user.html">Submit</a></button>
+      <button type="submit" id="submitButton">Submit</button>
     </form>
   </section>
 
@@ -298,6 +299,15 @@
         reader.readAsDataURL(file);
       }
     });
+
+    var button = document.getElementById("submitButton");
+
+  // Set up a click event listener on the button
+  button.addEventListener("click", function() {
+    // Redirect to the specified link when the button is clicked
+    window.location.href = "user.html";
+  });
+  
   </script>
 </body>
 

@@ -1,0 +1,14 @@
+import sqlite3
+import sys
+idnumber = 0
+username = None
+conn = sqlite3.connect('finger.db')
+print "Opened database successfully";
+
+cursor = conn.execute("SELECT id, name, from FINGER")
+for row in cursor:
+   idnumber = row[0]
+   username = row[1]
+
+
+conn.close()
